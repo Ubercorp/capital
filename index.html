@@ -10,20 +10,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --color-primary-bg: #F8F7F4;
+            --color-secondary-bg: #FFFFFF;
+            --color-text-dark: #2E3A59;
+            --color-text-light: #52638B;
+            --color-accent: #CDA434;
+        }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F8F7F4;
-            color: #2c3e50;
+            background-color: var(--color-primary-bg);
+            color: var(--color-text-dark);
         }
         .nav-link {
             transition: color 0.3s, border-bottom-color 0.3s;
         }
         .nav-link:hover, .nav-link.active {
-            color: #083344; /* cyan-900 */
-            border-bottom-color: #083344;
+            color: var(--color-accent);
+            border-bottom-color: var(--color-accent);
         }
         .card {
-            background-color: #FFFFFF;
+            background-color: var(--color-secondary-bg);
             border: 1px solid #EAEAEA;
             transition: transform 0.3s, box-shadow 0.3s;
         }
@@ -38,9 +45,9 @@
             left: -20px;
             width: 12px;
             height: 12px;
-            background-color: #0e7490; /* cyan-700 */
+            background-color: var(--color-accent);
             border-radius: 50%;
-            border: 2px solid #F8F7F4;
+            border: 2px solid var(--color-primary-bg);
             z-index: 1;
         }
         .accordion-content {
@@ -73,113 +80,116 @@
             text-align: center;
             padding: 1rem;
             color: #6B7280;
+            white-space: pre-wrap; /* Preserve whitespace and display text as-is */
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <header id="header" class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+    <header id="header" class="bg-[var(--color-secondary-bg)]/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-cyan-900">Investidor Inteligente</div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#modelo" class="nav-link border-b-2 border-transparent pb-1">O Modelo</a>
-                <a href="#jornada" class="nav-link border-b-2 border-transparent pb-1">Jornada</a>
-                <a href="#analise" class="nav-link border-b-2 border-transparent pb-1">Análise de Risco</a>
-                <a href="#metricas" class="nav-link border-b-2 border-transparent pb-1">Métricas</a>
-                <a href="#contato" class="bg-cyan-800 text-white px-4 py-2 rounded-lg hover:bg-cyan-900 transition-colors">Contato</a>
+            <div class="text-xl font-bold text-[var(--color-text-dark)]">
+                <img src="https://placehold.co/150x40/2E3A59/CDA434?text=UBERCORP" alt="Logo da Ubercorp Capital" class="h-10">
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-cyan-900 focus:outline-none">
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#modelo" class="nav-link border-b-2 border-transparent pb-1 text-[var(--color-text-dark)]">O Modelo</a>
+                <a href="#jornada" class="nav-link border-b-2 border-transparent pb-1 text-[var(--color-text-dark)]">Jornada</a>
+                <a href="#analise" class="nav-link border-b-2 border-transparent pb-1 text-[var(--color-text-dark)]">Análise de Risco</a>
+                <a href="#metricas" class="nav-link border-b-2 border-transparent pb-1 text-[var(--color-text-dark)]">Métricas</a>
+                <a href="#contato" class="bg-[var(--color-accent)] text-[var(--color-text-dark)] px-4 py-2 rounded-lg hover:bg-[#D4AF37] transition-colors">Contato</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-[var(--color-text-dark)] focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path></svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="#modelo" class="block py-2 px-6 text-sm hover:bg-gray-100">O Modelo</a>
-            <a href="#jornada" class="block py-2 px-6 text-sm hover:bg-gray-100">Jornada</a>
-            <a href="#analise" class="block py-2 px-6 text-sm hover:bg-gray-100">Análise de Risco</a>
-            <a href="#metricas" class="block py-2 px-6 text-sm hover:bg-gray-100">Métricas</a>
-            <a href="#contato" class="block py-2 px-6 text-sm hover:bg-gray-100">Contato</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-[var(--color-secondary-bg)]">
+            <a href="#modelo" class="block py-2 px-6 text-sm text-[var(--color-text-dark)] hover:bg-gray-100">O Modelo</a>
+            <a href="#jornada" class="block py-2 px-6 text-sm text-[var(--color-text-dark)] hover:bg-gray-100">Jornada</a>
+            <a href="#analise" class="block py-2 px-6 text-sm text-[var(--color-text-dark)] hover:bg-gray-100">Análise de Risco</a>
+            <a href="#metricas" class="block py-2 px-6 text-sm text-[var(--color-text-dark)] hover:bg-gray-100">Métricas</a>
+            <a href="#contato" class="block py-2 px-6 text-sm text-[var(--color-text-dark)] hover:bg-gray-100">Contato</a>
         </div>
     </header>
 
     <main>
-        <section id="hero" class="py-20 md:py-32 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl font-bold text-cyan-900 leading-tight mb-4">Invista na Etapa Mais Lucrativa do Mercado Imobiliário.</h1>
-                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Descubra como a Sociedade em Conta de Participação (SCP) permite que você invista em empreendimentos desde a compra do terreno, com segurança jurídica e potencial de alta rentabilidade.</p>
+        <section id="hero" class="py-20 md:py-32 bg-[var(--color-primary-bg)] text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl font-bold text-[var(--color-text-dark)] leading-tight mb-4">Invista na Etapa Mais Lucrativa do Mercado Imobiliário.</h1>
+                <p class="text-lg md:text-xl text-[var(--color-text-light)] max-w-3xl mx-auto">Descubra como a Sociedade em Conta de Participação (SCP) permite que você invista em empreendimentos desde a compra do terreno, com segurança jurídica e potencial de alta rentabilidade.</p>
             </div>
         </section>
 
-        <section id="modelo" class="py-16 md:py-24">
+        <section id="modelo" class="py-16 md:py-24 bg-[var(--color-secondary-bg)]">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-cyan-900">O Modelo SCP: Uma Parceria Estratégica</h2>
-                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">A Sociedade em Conta de Participação (SCP) é um modelo de investimento flexível e discreto, ideal para a construção civil. Ele une o capital do investidor à expertise da incorporadora, sem a burocracia de criar uma nova empresa.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-dark)]">O Modelo SCP: Uma Parceria Estratégica</h2>
+                    <p class="mt-4 text-[var(--color-text-light)] max-w-2xl mx-auto">A Sociedade em Conta de Participação (SCP) é um modelo de investimento flexível e discreto, ideal para a construção civil. Ele une o capital do investidor à expertise da incorporadora, sem a burocracia de criar uma nova empresa.</p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="card p-8 rounded-lg">
-                        <h3 class="text-2xl font-bold text-cyan-800 mb-4">Sócio Ostensivo (A Incorporadora)</h3>
-                        <p class="text-gray-600 mb-4">É o maestro do projeto. Responsável por toda a gestão, execução, e obrigações legais e fiscais. A incorporadora assume o risco operacional, utilizando sua expertise para garantir o sucesso do empreendimento.</p>
-                        <ul class="space-y-2 text-gray-700">
-                            <li class="flex items-center"><span class="text-cyan-600 mr-2">✓</span> Gestão completa do projeto</li>
-                            <li class="flex items-center"><span class="text-cyan-600 mr-2">✓</span> Responsabilidade perante terceiros</li>
-                            <li class="flex items-center"><span class="text-cyan-600 mr-2">✓</span> Execução da obra e vendas</li>
+                        <h3 class="text-2xl font-bold text-[var(--color-accent)] mb-4">Sócio Ostensivo (A Incorporadora)</h3>
+                        <p class="text-[var(--color-text-light)] mb-4">É o maestro do projeto. Responsável por toda a gestão, execução, e obrigações legais e fiscais. A incorporadora assume o risco operacional, utilizando sua expertise para garantir o sucesso do empreendimento.</p>
+                        <ul class="space-y-2 text-[var(--color-text-dark)]">
+                            <li class="flex items-center"><span class="text-[var(--color-accent)] mr-2">✓</span> Gestão completa do projeto</li>
+                            <li class="flex items-center"><span class="text-[var(--color-accent)] mr-2">✓</span> Responsabilidade perante terceiros</li>
+                            <li class="flex items-center"><span class="text-[var(--color-accent)] mr-2">✓</span> Execução da obra e vendas</li>
                         </ul>
                     </div>
                     <div class="card p-8 rounded-lg">
-                        <h3 class="text-2xl font-bold text-cyan-800 mb-4">Sócio Participante (O Investidor)</h3>
-                        <p class="text-gray-600 mb-4">É o investidor estratégico. Você aporta o capital que viabiliza o projeto desde sua fase mais rentável e participa dos lucros, sem se envolver na gestão do dia a dia. Sua responsabilidade é limitada ao capital investido.</p>
-                         <ul class="space-y-2 text-gray-700">
-                            <li class="flex items-center"><span class="text-cyan-600 mr-2">✓</span> Aporte de capital</li>
-                            <li class="flex items-center"><span class="text-cyan-600 mr-2">✓</span> Participação nos lucros</li>
-                            <li class="flex items-center"><span class="text-cyan-600 mr-2">✓</span> Direito de fiscalizar a gestão</li>
+                        <h3 class="text-2xl font-bold text-[var(--color-accent)] mb-4">Sócio Participante (O Investidor)</h3>
+                        <p class="text-[var(--color-text-light)] mb-4">É o investidor estratégico. Você aporta o capital que viabiliza o projeto desde sua fase mais rentável e participa dos lucros, sem se envolver na gestão do dia a dia. Sua responsabilidade é limitada ao capital investido.</p>
+                         <ul class="space-y-2 text-[var(--color-text-dark)]">
+                            <li class="flex items-center"><span class="text-[var(--color-accent)] mr-2">✓</span> Aporte de capital</li>
+                            <li class="flex items-center"><span class="text-[var(--color-accent)] mr-2">✓</span> Participação nos lucros</li>
+                            <li class="flex items-center"><span class="text-[var(--color-accent)] mr-2">✓</span> Direito de fiscalizar a gestão</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="jornada" class="py-16 md:py-24 bg-white">
+        <section id="jornada" class="py-16 md:py-24">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-cyan-900">A Jornada do Investimento</h2>
-                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Entenda o ciclo completo de um empreendimento via SCP, desde a concepção até a distribuição dos resultados.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-dark)]">A Jornada do Investimento</h2>
+                    <p class="mt-4 text-[var(--color-text-light)] max-w-2xl mx-auto">Entenda o ciclo completo de um empreendimento via SCP, desde a concepção até a distribuição dos resultados.</p>
                 </div>
-                <div class="relative pl-8 border-l-2 border-cyan-200">
+                <div class="relative pl-8 border-l-2 border-[#D1D5DB]">
                     <div class="timeline-item mb-12">
-                        <h3 class="text-xl font-bold text-cyan-800 mb-2">1. Prospecção e Viabilização</h3>
-                        <p class="text-gray-600">Esta é a fase inicial, onde seu capital faz a maior diferença. Financiamos a compra do terreno e os estudos de viabilidade (técnica, legal, financeira). É aqui que o maior potencial de valorização é destravado.</p>
+                        <h3 class="text-xl font-bold text-[var(--color-accent)] mb-2">1. Prospecção e Viabilização</h3>
+                        <p class="text-[var(--color-text-dark)]">Esta é a fase inicial, onde seu capital faz a maior diferença. Financiamos a compra do terreno e os estudos de viabilidade (técnica, legal, financeira). É aqui que o maior potencial de valorização é destravado.</p>
                     </div>
                     <div class="timeline-item mb-12">
-                        <h3 class="text-xl font-bold text-cyan-800 mb-2">2. Execução e Comercialização</h3>
-                        <p class="text-gray-600">Com o projeto aprovado, a obra começa. O capital dos sócios financia a construção. A comercialização se inicia, e como sócio participante, você tem acesso a condições privilegiadas e descontos de pré-lançamento.</p>
+                        <h3 class="text-xl font-bold text-[var(--color-accent)] mb-2">2. Execução e Comercialização</h3>
+                        <p class="text-[var(--color-text-dark)]">Com o projeto aprovado, a obra começa. O capital dos sócios financia a construção. A comercialização se inicia, e como sócio participante, você tem acesso a condições privilegiadas e descontos de pré-lançamento.</p>
                     </div>
                     <div class="timeline-item">
-                        <h3 class="text-xl font-bold text-cyan-800 mb-2">3. Liquidação e Distribuição de Resultados</h3>
-                        <p class="text-gray-600">Após a conclusão da obra e a venda das unidades, o resultado financeiro do projeto é apurado. O lucro é distribuído entre os sócios, conforme definido no contrato, marcando a realização do seu investimento.</p>
+                        <h3 class="text-xl font-bold text-[var(--color-accent)] mb-2">3. Liquidação e Distribuição de Resultados</h3>
+                        <p class="text-[var(--color-text-dark)]">Após a conclusão da obra e a venda das unidades, o resultado financeiro do projeto é apurado. O lucro é distribuído entre os sócios, conforme definido no contrato, marcando a realização do seu investimento.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="analise" class="py-16 md:py-24">
+        <section id="analise" class="py-16 md:py-24 bg-[var(--color-secondary-bg)]">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-cyan-900">Análise de Risco e Due Diligence</h2>
-                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">A segurança do seu investimento é nossa prioridade. A transparência e uma análise de risco rigorosa são os pilares da nossa parceria.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-dark)]">Análise de Risco e Due Diligence</h2>
+                    <p class="mt-4 text-[var(--color-text-light)] max-w-2xl mx-auto">A segurança do seu investimento é nossa prioridade. A transparência e uma análise de risco rigorosa são os pilares da nossa parceria.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h3 class="text-2xl font-bold text-cyan-800 mb-6">Checklist de Due Diligence</h3>
+                        <h3 class="text-2xl font-bold text-[var(--color-text-dark)] mb-6">Checklist de Due Diligence</h3>
                         <div id="accordion-container">
                             <div class="accordion-item border-b border-gray-200">
-                                <button class="accordion-header w-full text-left py-4 font-semibold text-lg flex justify-between items-center">
+                                <button class="accordion-header w-full text-left py-4 font-semibold text-lg flex justify-between items-center text-[var(--color-text-dark)]">
                                     <span>Avaliação da Incorporadora</span>
                                     <span class="transform transition-transform duration-300">▼</span>
                                 </button>
                                 <div class="accordion-content">
-                                    <ul class="p-4 list-disc list-inside text-gray-600 bg-gray-50 rounded-b-lg">
+                                    <ul class="p-4 list-disc list-inside text-[var(--color-text-light)] bg-gray-50 rounded-b-lg">
                                         <li>Análise jurídica e de reputação no mercado.</li>
                                         <li>Verificação de certidões negativas (fiscais, cíveis, trabalhistas).</li>
                                         <li>Análise da saúde financeira e histórico de projetos entregues.</li>
@@ -187,12 +197,12 @@
                                 </div>
                             </div>
                              <div class="accordion-item border-b border-gray-200">
-                                <button class="accordion-header w-full text-left py-4 font-semibold text-lg flex justify-between items-center">
+                                <button class="accordion-header w-full text-left py-4 font-semibold text-lg flex justify-between items-center text-[var(--color-text-dark)]">
                                     <span>Avaliação do Empreendimento</span>
                                     <span class="transform transition-transform duration-300">▼</span>
                                 </button>
                                 <div class="accordion-content">
-                                    <ul class="p-4 list-disc list-inside text-gray-600 bg-gray-50 rounded-b-lg">
+                                    <ul class="p-4 list-disc list-inside text-[var(--color-text-light)] bg-gray-50 rounded-b-lg">
                                         <li>Estudo de mercado e análise da concorrência.</li>
                                         <li>Análise de viabilidade urbanística e legal (zoneamento, plano diretor).</li>
                                         <li>Análise econômico-financeira (VGV, custos, projeções).</li>
@@ -200,12 +210,12 @@
                                 </div>
                             </div>
                              <div class="accordion-item">
-                                <button class="accordion-header w-full text-left py-4 font-semibold text-lg flex justify-between items-center">
+                                <button class="accordion-header w-full text-left py-4 font-semibold text-lg flex justify-between items-center text-[var(--color-text-dark)]">
                                     <span>Análise do Contrato SCP</span>
                                     <span class="transform transition-transform duration-300">▼</span>
                                 </button>
                                 <div class="accordion-content">
-                                    <ul class="p-4 list-disc list-inside text-gray-600 bg-gray-50 rounded-b-lg">
+                                    <ul class="p-4 list-disc list-inside text-[var(--color-text-light)] bg-gray-50 rounded-b-lg">
                                         <li>Cláusulas claras de direitos e deveres.</li>
                                         <li>Mecanismos de fiscalização e prestação de contas.</li>
                                         <li>Regras para distribuição de resultados e dissolução.</li>
@@ -218,21 +228,20 @@
                         <div class="chart-container">
                             <canvas id="riskChart"></canvas>
                         </div>
-                        <p class="text-center mt-4 text-sm text-gray-500">Visualização do perfil de risco de um projeto antes e depois da nossa rigorosa análise de mitigação.</p>
+                        <p class="text-center mt-4 text-sm text-[var(--color-text-light)]">Visualização do perfil de risco de um projeto antes e depois da nossa rigorosa análise de mitigação.</p>
                     </div>
                 </div>
 
-                <!-- Nova Seção de Análise LLM - agora com Análise de Viabilidade -->
                 <div class="mt-20">
-                    <h3 class="text-2xl font-bold text-cyan-800 mb-6 text-center">Análise de Viabilidade (AI-Powered) ✨</h3>
+                    <h3 class="text-2xl font-bold text-[var(--color-text-dark)] mb-6 text-center">Análise de Viabilidade (AI-Powered) ✨</h3>
                     <div class="card p-8 rounded-lg">
-                        <p class="text-gray-600 mb-4">Descreva um projeto imobiliário (localização, tipo, público-alvo, etc.) para receber uma análise completa de viabilidade, destacando o mercado, oportunidades, riscos e recomendações estratégicas, gerada por IA.</p>
-                        <textarea id="project-description" rows="4" class="w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm p-2 mb-4" placeholder="Ex: Projeto de um condomínio de 20 casas na área metropolitana de São Paulo, próximo a uma nova estação de metro."></textarea>
-                        <button id="analyze-project-btn" class="w-full bg-cyan-800 text-white py-2 rounded-lg hover:bg-cyan-900 transition-colors flex items-center justify-center space-x-2">
+                        <p class="text-[var(--color-text-light)] mb-4">Descreva um projeto imobiliário (localização, tipo, público-alvo, etc.) para receber uma análise completa de viabilidade, destacando o mercado, oportunidades, riscos e recomendações estratégicas, gerada por IA.</p>
+                        <textarea id="project-description" rows="4" class="w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--color-accent)] focus:ring-[var(--color-accent)] sm:text-sm p-2 mb-4 text-[var(--color-text-dark)]" placeholder="Ex: Projeto de um condomínio de 20 casas na área metropolitana de São Paulo, próximo a uma nova estação de metro."></textarea>
+                        <button id="analyze-project-btn" class="w-full bg-[var(--color-accent)] text-[var(--color-text-dark)] py-2 rounded-lg hover:bg-[#D4AF37] transition-colors flex items-center justify-center space-x-2">
                             <span class="text-xl leading-none">✨</span>
                             <span>Gerar Análise de Viabilidade</span>
                         </button>
-                        <div id="analysis-output" class="mt-6 llm-analysis-container">
+                        <div id="analysis-output" class="mt-6 llm-analysis-container bg-gray-50 text-[var(--color-text-light)]">
                             A sua análise será exibida aqui.
                         </div>
                     </div>
@@ -240,82 +249,82 @@
             </div>
         </section>
 
-        <section id="metricas" class="py-16 md:py-24 bg-white">
+        <section id="metricas" class="py-16 md:py-24">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-cyan-900">Métricas de Sucesso: A Linguagem do Investidor</h2>
-                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Analisamos os indicadores financeiros mais importantes para garantir que cada projeto tenha um alto potencial de retorno.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-dark)]">Métricas de Sucesso: A Linguagem do Investidor</h2>
+                    <p class="mt-4 text-[var(--color-text-light)] max-w-2xl mx-auto">Analisamos os indicadores financeiros mais importantes para garantir que cada projeto tenha um alto potencial de retorno.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                     <div class="card p-6 text-center rounded-lg">
-                        <h4 class="font-bold text-lg text-cyan-800">VGV</h4>
-                        <p class="text-sm text-gray-500 mb-2">Valor Geral de Vendas</p>
-                        <p class="text-3xl font-bold text-cyan-900">R$ 50M+</p>
-                        <p class="text-xs text-gray-400 mt-1">Potencial de receita do projeto</p>
+                        <h4 class="font-bold text-lg text-[var(--color-accent)]">VGV</h4>
+                        <p class="text-sm text-[var(--color-text-dark)] mb-2">Valor Geral de Vendas</p>
+                        <p class="text-3xl font-bold text-[var(--color-accent)]">R$ 50M+</p>
+                        <p class="text-xs text-[var(--color-text-light)] mt-1">Potencial de receita do projeto</p>
                     </div>
                     <div class="card p-6 text-center rounded-lg">
-                        <h4 class="font-bold text-lg text-cyan-800">ROI</h4>
-                        <p class="text-sm text-gray-500 mb-2">Retorno sobre Investimento</p>
-                        <p class="text-3xl font-bold text-cyan-900">70-120%</p>
-                        <p class="text-xs text-gray-400 mt-1">Rentabilidade total esperada</p>
+                        <h4 class="font-bold text-lg text-[var(--color-accent)]">ROI</h4>
+                        <p class="text-sm text-[var(--color-text-dark)] mb-2">Retorno sobre Investimento</p>
+                        <p class="text-3xl font-bold text-[var(--color-accent)]">70-120%</p>
+                        <p class="text-xs text-[var(--color-text-light)] mt-1">Rentabilidade total esperada</p>
                     </div>
                     <div class="card p-6 text-center rounded-lg">
-                        <h4 class="font-bold text-lg text-cyan-800">TIR</h4>
-                        <p class="text-sm text-gray-500 mb-2">Taxa Interna de Retorno</p>
-                        <p class="text-3xl font-bold text-cyan-900">25-40% a.a.</p>
-                        <p class="text-xs text-gray-400 mt-1">Rentabilidade anualizada</p>
+                        <h4 class="font-bold text-lg text-[var(--color-accent)]">TIR</h4>
+                        <p class="text-sm text-[var(--color-text-dark)] mb-2">Taxa Interna de Retorno</p>
+                        <p class="text-3xl font-bold text-[var(--color-accent)]">25-40% a.a.</p>
+                        <p class="text-xs text-[var(--color-text-light)] mt-1">Rentabilidade anualizada</p>
                     </div>
                     <div class="card p-6 text-center rounded-lg">
-                        <h4 class="font-bold text-lg text-cyan-800">Prazo</h4>
-                        <p class="text-sm text-gray-500 mb-2">Ciclo do Projeto</p>
-                        <p class="text-3xl font-bold text-cyan-900">24-36 meses</p>
-                        <p class="text-xs text-gray-400 mt-1">Do início à distribuição de lucros</p>
+                        <h4 class="font-bold text-lg text-[var(--color-accent)]">Prazo</h4>
+                        <p class="text-sm text-[var(--color-text-dark)] mb-2">Ciclo do Projeto</p>
+                        <p class="text-3xl font-bold text-[var(--color-accent)]">24-36 meses</p>
+                        <p class="text-xs text-[var(--color-text-light)] mt-1">Do início à distribuição de lucros</p>
                     </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-12 items-center mt-16">
                     <div class="card p-8 rounded-lg">
-                        <h3 class="text-2xl font-bold text-cyan-800 mb-4">Calculadora de ROI Simplificada</h3>
+                        <h3 class="text-2xl font-bold text-[var(--color-text-dark)] mb-4">Calculadora de ROI Simplificada</h3>
                         <div class="space-y-4">
                             <div>
-                                <label for="investment" class="block text-sm font-medium text-gray-700">Seu Investimento (R$)</label>
-                                <input type="number" id="investment" value="250000" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                <label for="investment" class="block text-sm font-medium text-[var(--color-text-dark)]">Seu Investimento (R$)</label>
+                                <input type="number" id="investment" value="250000" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--color-accent)] focus:ring-[var(--color-accent)] sm:text-sm text-[var(--color-text-dark)]">
                             </div>
                             <div>
-                                <label for="roi-percentage" class="block text-sm font-medium text-gray-700">ROI Esperado (%)</label>
-                                <input type="number" id="roi-percentage" value="80" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                <label for="roi-percentage" class="block text-sm font-medium text-[var(--color-text-dark)]">ROI Esperado (%)</label>
+                                <input type="number" id="roi-percentage" value="80" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--color-accent)] focus:ring-[var(--color-accent)] sm:text-sm text-[var(--color-text-dark)]">
                             </div>
-                            <button id="calculate-roi" class="w-full bg-cyan-800 text-white py-2 rounded-lg hover:bg-cyan-900 transition-colors">Calcular Retorno</button>
+                            <button id="calculate-roi" class="w-full bg-[var(--color-accent)] text-[var(--color-text-dark)] py-2 rounded-lg hover:bg-[#D4AF37] transition-colors">Calcular Retorno</button>
                         </div>
                         <div id="roi-result" class="mt-6 text-center">
-                            <p class="text-gray-600">Lucro Estimado:</p>
-                            <p class="text-3xl font-bold text-cyan-900" id="profit-value">R$ 200.000,00</p>
-                            <p class="text-gray-600">Valor Total Resgatado:</p>
-                            <p class="text-3xl font-bold text-cyan-900" id="total-value">R$ 450.000,00</p>
+                            <p class="text-[var(--color-text-light)]">Lucro Estimado:</p>
+                            <p class="text-3xl font-bold text-[var(--color-accent)]" id="profit-value">R$ 200.000,00</p>
+                            <p class="text-[var(--color-text-light)]">Valor Total Resgatado:</p>
+                            <p class="text-3xl font-bold text-[var(--color-accent)]" id="total-value">R$ 450.000,00</p>
                         </div>
                     </div>
                     <div>
                         <div class="chart-container">
                             <canvas id="tirChart"></canvas>
                         </div>
-                        <p class="text-center mt-4 text-sm text-gray-500">Comparativo da TIR de um projeto SCP com outras aplicações financeiras.</p>
+                        <p class="text-center mt-4 text-sm text-[var(--color-text-light)]">Comparativo da TIR de um projeto SCP com outras aplicações financeiras.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contato" class="py-16 md:py-24 bg-cyan-900 text-white">
+        <section id="contato" class="py-16 md:py-24 bg-[var(--color-text-dark)] text-[var(--color-primary-bg)]">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold">Pronto para ser um Investidor Inteligente?</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-cyan-200">Entre em contato para conhecer nossos projetos em andamento e descubra como você pode participar da fase mais lucrativa do mercado imobiliário com segurança e transparência.</p>
-                <a href="mailto:contato@incorporadora.com" class="mt-8 inline-block bg-white text-cyan-900 font-bold px-8 py-4 rounded-lg hover:bg-gray-200 transition-colors">Fale com um Especialista</a>
+                <p class="mt-4 max-w-2xl mx-auto text-[var(--color-text-light)]">Entre em contato para conhecer nossos projetos em andamento e descubra como você pode participar da fase mais lucrativa do mercado imobiliário com segurança e transparência.</p>
+                <a href="mailto:contato@incorporadora.com" class="mt-8 inline-block bg-[var(--color-accent)] text-[var(--color-text-dark)] font-bold px-8 py-4 rounded-lg hover:bg-[#D4AF37] transition-colors">Fale com um Especialista</a>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-[var(--color-text-dark)] text-[var(--color-primary-bg)] py-8">
         <div class="container mx-auto px-6 text-center text-sm">
-            <p>&copy; 2025 Incorporadora Investidor Inteligente. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Ubercorp Capital. Todos os direitos reservados.</p>
             <p class="text-gray-400 mt-2">As informações apresentadas são para fins educacionais e não constituem uma oferta de investimento. A rentabilidade passada não garante a rentabilidade futura.</p>
         </div>
     </footer>
@@ -363,8 +372,8 @@
                     }, {
                         label: 'Risco Mitigado',
                         data: [3, 4, 2, 2, 2],
-                        backgroundColor: 'rgba(14, 116, 144, 0.2)',
-                        borderColor: 'rgba(14, 116, 144, 1)',
+                        backgroundColor: 'rgba(205, 164, 52, 0.2)',
+                        borderColor: '#CDA434',
                         borderWidth: 2
                     }]
                 },
@@ -413,16 +422,16 @@
                         label: 'Rentabilidade Anualizada Esperada (%)',
                         data: [32, 10.5, 6.17, 12],
                         backgroundColor: [
-                            '#0e7490', // cyan-700
-                            '#6b7280',
-                            '#9ca3af',
-                            '#6b7280',
+                            '#CDA434',
+                            '#D1D5DB',
+                            '#D1D5DB',
+                            '#D1D5DB',
                         ],
                         borderColor: [
-                            '#083344',
-                            '#4b5563',
-                            '#6b7280',
-                            '#4b5563',
+                            '#CDA434',
+                            '#9CA3AF',
+                            '#9CA3AF',
+                            '#9CA3AF',
                         ],
                         borderWidth: 1
                     }]
@@ -499,12 +508,12 @@
 
                 // Show loading state
                 analysisOutput.innerHTML = `
-                    <div class="flex flex-col items-center justify-center">
-                        <svg class="animate-spin -ml-1 mr-3 h-8 w-8 text-cyan-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <div class="flex flex-col items-center justify-center text-center p-4">
+                        <svg class="animate-spin -ml-1 mr-3 h-8 w-8 text-[var(--color-accent)]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.962l3-2.671z"></path>
                         </svg>
-                        <p class="mt-2 text-cyan-800">Analisando a viabilidade...</p>
+                        <p class="mt-2 text-[var(--color-accent)]">Analisando a viabilidade...</p>
                     </div>
                 `;
 
@@ -522,18 +531,36 @@
 
                     const payload = { contents: chatHistory };
                     const apiKey = "";
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
-                    const response = await fetch(apiUrl, {
+                    // Function for exponential backoff retry
+                    const fetchWithRetry = async (url, options, retries = 5) => {
+                        for (let i = 0; i < retries; i++) {
+                            try {
+                                const response = await fetch(url, options);
+                                if (response.ok) {
+                                    return response;
+                                }
+                                if (response.status === 429) { // Too Many Requests
+                                    const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                                    await new Promise(res => setTimeout(res, delay));
+                                    continue;
+                                }
+                                throw new Error(`API Error: ${response.status} ${response.statusText}`);
+                            } catch (error) {
+                                if (i === retries - 1) throw error;
+                                const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                                await new Promise(res => setTimeout(res, delay));
+                            }
+                        }
+                    };
+
+                    const response = await fetchWithRetry(apiUrl, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
                     
-                    if (!response.ok) {
-                        throw new Error(`API Error: ${response.status} ${response.statusText}`);
-                    }
-
                     const result = await response.json();
                     
                     if (result.candidates && result.candidates.length > 0 &&
