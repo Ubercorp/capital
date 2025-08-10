@@ -530,16 +530,21 @@
                     chatHistory.push({ role: "user", parts: [{ text: llmPrompt }] });
 
                     const payload = { contents: chatHistory };
+                    // A chave da API é fornecida automaticamente pelo ambiente.
                     const apiKey = "";
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
-                    // Function for exponential backoff retry
+                    // Função com backoff exponencial para lidar com erros de API
                     const fetchWithRetry = async (url, options, retries = 5) => {
                         for (let i = 0; i < retries; i++) {
                             try {
                                 const response = await fetch(url, options);
                                 if (response.ok) {
                                     return response;
+                                }
+                                // Se o erro for 403 (proibido) ou 401 (não autorizado), não faz sentido tentar novamente.
+                                if (response.status === 403 || response.status === 401) {
+                                     throw new Error(`API Error: ${response.status} - ${response.statusText}. Por favor, verifique se a sua chave de API está válida.`);
                                 }
                                 if (response.status === 429) { // Too Many Requests
                                     const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
@@ -569,11 +574,11 @@
                         const text = result.candidates[0].content.parts[0].text;
                         analysisOutput.innerHTML = `<div class="p-4 text-left">${text}</div>`;
                     } else {
-                        analysisOutput.innerHTML = '<p class="text-red-500">Não foi possível gerar a análise. Tente novamente.</p>';
+                        analysisOutput.innerHTML = '<p class="text-red-500">Não foi possível gerar a análise. A resposta da API estava vazia ou em formato inesperado.</p>';
                     }
                 } catch (error) {
                     console.error('Erro ao chamar a API do Gemini:', error);
-                    analysisOutput.innerHTML = '<p class="text-red-500">Ocorreu um erro ao processar a solicitação. Por favor, tente novamente mais tarde.</p>';
+                    analysisOutput.innerHTML = `<p class="text-red-500">Ocorreu um erro ao processar a solicitação: ${error.message}. Por favor, tente novamente mais tarde.</p>`;
                 }
             });
 
