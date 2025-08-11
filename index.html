@@ -89,31 +89,30 @@
 </head>
 <body class="antialiased">
 
-    <!-- Cabeçalho com fundo claro para se misturar com a logomarca -->
-    <header id="header" class="bg-[var(--color-header-bg-light)] shadow-sm sticky top-0 z-50">
+    <!-- Cabeçalho com fundo escuro para combinar com a logomarca -->
+    <header id="header" class="bg-[var(--color-text-dark)] shadow-lg sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-[var(--color-text-dark)]">
+            <div class="text-xl font-bold text-white">
                 <!-- Logomarca com tamanho ampliado para h-24 para maior destaque -->
-                <!-- A URL da imagem foi corrigida para usar o serviço jsDelivr, que serve a imagem diretamente do repositório do GitHub. -->
                 <img src="https://cdn.jsdelivr.net/gh/Ubercorp/imagens/Logo%20principal%2020250804_112743_0000.jpg" alt="Logomarca Ubercorp Capital 2025" class="h-24">
             </div>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#modelo" class="nav-link border-b-2 border-transparent pb-1 text-[var(--color-text-dark)]">O Modelo</a>
-                <a href="#jornada" class="nav-link border-b-2 border-transparent pb-1 text-[var(--color-text-dark)]">Jornada</a>
-                <a href="#analise" class="nav-link border-b-2 border-transparent pb-1 text-[var(--color-text-dark)]">Análise de Risco</a>
-                <a href="#metricas" class="nav-link border-b-2 border-transparent pb-1 text-[var(--color-text-dark)]">Métricas</a>
+                <a href="#modelo" class="nav-link border-b-2 border-transparent pb-1 text-white">O Modelo</a>
+                <a href="#jornada" class="nav-link border-b-2 border-transparent pb-1 text-white">Jornada</a>
+                <a href="#analise" class="nav-link border-b-2 border-transparent pb-1 text-white">Análise de Risco</a>
+                <a href="#metricas" class="nav-link border-b-2 border-transparent pb-1 text-white">Métricas</a>
                 <a href="#contato" class="bg-[var(--color-accent)] text-white px-4 py-2 rounded-lg hover:bg-[#D4AF37] transition-colors">Contato</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-[var(--color-text-dark)] focus:outline-none">
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path></svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden bg-[var(--color-header-bg-light)]">
-            <a href="#modelo" class="block py-2 px-6 text-sm text-[var(--color-text-dark)] hover:bg-gray-100">O Modelo</a>
-            <a href="#jornada" class="block py-2 px-6 text-sm text-[var(--color-text-dark)] hover:bg-gray-100">Jornada</a>
-            <a href="#analise" class="block py-2 px-6 text-sm text-[var(--color-text-dark)] hover:bg-gray-100">Análise de Risco</a>
-            <a href="#metricas" class="block py-2 px-6 text-sm text-[var(--color-text-dark)] hover:bg-gray-100">Métricas</a>
-            <a href="#contato" class="block py-2 px-6 text-sm text-[var(--color-text-dark)] hover:bg-gray-100">Contato</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-[var(--color-text-dark)]">
+            <a href="#modelo" class="block py-2 px-6 text-sm text-gray-200 hover:bg-gray-700">O Modelo</a>
+            <a href="#jornada" class="block py-2 px-6 text-sm text-gray-200 hover:bg-gray-700">Jornada</a>
+            <a href="#analise" class="block py-2 px-6 text-sm text-gray-200 hover:bg-gray-700">Análise de Risco</a>
+            <a href="#metricas" class="block py-2 px-6 text-sm text-gray-200 hover:bg-gray-700">Métricas</a>
+            <a href="#contato" class="block py-2 px-6 text-sm text-gray-200 hover:bg-gray-700">Contato</a>
         </div>
     </header>
 
@@ -323,7 +322,17 @@
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold">Pronto para ser um Investidor Inteligente?</h2>
                 <p class="mt-4 max-w-2xl mx-auto text-gray-400">Entre em contato para conhecer nossos projetos em andamento e descubra como você pode participar da fase mais lucrativa do mercado imobiliário com segurança e transparência.</p>
-                <a href="mailto:contato@incorporadora.com" class="mt-8 inline-block bg-[var(--color-accent)] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D4AF37] transition-colors">Fale com um Especialista</a>
+                <!-- Botões de contato atualizados com email e WhatsApp -->
+                <div class="mt-8 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <!-- Botão de contato por email com o novo endereço -->
+                    <a href="mailto:ubercorp.brasil@gmail.com" class="inline-block bg-[var(--color-accent)] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D4AF37] transition-colors w-full sm:w-auto text-center">
+                        Fale por E-mail
+                    </a>
+                    <!-- Botão de contato por WhatsApp -->
+                    <a href="https://wa.me/5534999521176" target="_blank" class="inline-block bg-green-500 text-white font-bold px-8 py-4 rounded-lg hover:bg-green-600 transition-colors w-full sm:w-auto text-center">
+                        Fale pelo WhatsApp
+                    </a>
+                </div>
             </div>
         </section>
     </main>
